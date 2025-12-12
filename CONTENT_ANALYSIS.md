@@ -46,23 +46,25 @@ Every API request in the collection follows this consistent structure:
 
 ### 2. Data Retrieval Endpoints
 
-#### Get Trending Tokens (Status: 201)
-- **Purpose**: Fetch trending cryptocurrency tokens
+#### Get Trending Tokens (Method: POST, Status: 201)
+- **Purpose**: Request and receive trending cryptocurrency tokens
+- **Note**: Uses POST method with 201 Created status (API design choice)
 - **Data Structure**:
   - Token address, name, symbol, decimals
   - Price and 24h price change
   - Metadata (logos, verification status)
   - Chain information
 
-#### Get Chains (Status: 201)
-- **Purpose**: Retrieve blockchain network information
+#### Get Chains (Method: POST, Status: 201)
+- **Purpose**: Request blockchain network information
+- **Note**: Uses POST method with 201 Created status (API design choice)
 - **Data Structure**:
   - Network identification (id, name, displayName)
   - RPC endpoints (HTTP/WebSocket)
   - Explorer information
   - Currency details
-  - Contract addresses
-  - Solver addresses
+  - Featured tokens and ERC20 currencies
+  - Smart contract addresses (multicall, receiver, router)
 
 ## Content Patterns
 
