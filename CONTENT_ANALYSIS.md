@@ -164,17 +164,19 @@ Get Tokens → Display Loading → Receive Data → Render UI → Cache Results
 - Must be valid email format
 - Case-insensitive
 
-### Password Requirements
-- Minimum length (not specified in structure, should be 8+ characters)
+### Password Requirements (Recommendations)
+- Recommended minimum length: 8+ characters
 - Should include complexity requirements in production
+- Note: Actual validation rules not specified in current API structure
 
 ### Token Validation
 - JWT format (header.payload.signature)
 - Expiration time validation
 - Signature verification required
 
-## Response Time Guidelines
+## Response Time Targets (Suggested)
 
+These are recommended targets for optimal user experience:
 - **Authentication**: < 500ms
 - **Data Retrieval**: < 1000ms
 - **Large Datasets**: < 2000ms with pagination
