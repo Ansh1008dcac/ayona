@@ -1,6 +1,93 @@
 [
   {
     "method": "POST",
+    "url": "https://api.chimpx.ai/auth/login",
+    "statusCode": 200,
+    "headers": {
+      "accept": "*/*",
+      "content-type": "application/json",
+      "origin": "https://app.chimpx.ai",
+      "referer": "https://app.chimpx.ai/",
+      "sec-ch-ua": "\"Google Chrome\";v=\"143\", \"Chromium\";v=\"143\", \"Not A(Brand\";v=\"24\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "empty",
+      "sec-fetch-mode": "cors",
+      "sec-fetch-site": "same-site",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
+    },
+    "payload": {
+      "email": "user@example.com",
+      "password": "********"
+    },
+    "response": {
+      "success": true,
+      "message": "Login successful",
+      "data": {
+        "user": {
+          "id": "user_12345",
+          "email": "user@example.com",
+          "name": "John Doe",
+          "verified": true,
+          "createdAt": "2024-01-01T00:00:00.000Z"
+        },
+        "token": {
+          "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+          "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+          "expiresIn": 3600,
+          "tokenType": "Bearer"
+        },
+        "ui": {
+          "redirectTo": "/dashboard",
+          "theme": "dark",
+          "preferences": {
+            "language": "en",
+            "notifications": true,
+            "twoFactorEnabled": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://api.chimpx.ai/auth/login",
+    "statusCode": 401,
+    "headers": {
+      "accept": "*/*",
+      "content-type": "application/json",
+      "origin": "https://app.chimpx.ai",
+      "referer": "https://app.chimpx.ai/",
+      "sec-ch-ua": "\"Google Chrome\";v=\"143\", \"Chromium\";v=\"143\", \"Not A(Brand\";v=\"24\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "sec-fetch-dest": "empty",
+      "sec-fetch-mode": "cors",
+      "sec-fetch-site": "same-site",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
+    },
+    "payload": {
+      "email": "user@example.com",
+      "password": "wrongpassword"
+    },
+    "response": {
+      "success": false,
+      "message": "Invalid credentials",
+      "error": {
+        "code": "AUTH_FAILED",
+        "type": "authentication_error",
+        "details": "The email or password you entered is incorrect"
+      },
+      "ui": {
+        "showError": true,
+        "errorMessage": "Invalid email or password. Please try again.",
+        "allowRetry": true,
+        "retryDelay": 0
+      }
+    }
+  },
+  {
+    "method": "POST",
     "url": "https://api.chimpx.ai/chimpx/getTrendingTokens",
     "statusCode": 201,
     "headers": {
